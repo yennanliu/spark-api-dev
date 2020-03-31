@@ -12,12 +12,12 @@ def hello_world():
 # Run spark demo job
 @app.route('/REST/api/v1.0/spark_demo_job')
 def run_spark_hello_world():
-	try:
-		os.system("spark-submit spark_job_demo.py")
-		return jsonify(job_status=True)
-	except Exception as e:
-		print (e)
-		return jsonify(job_status=False)
+    try:
+        os.system("spark-submit spark_job_demo.py")
+        return jsonify(job_status=True)
+    except Exception as e:
+        print (e)
+        return jsonify(job_status=False)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000, debug=True)
