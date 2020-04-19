@@ -1,2 +1,2 @@
 pypandoc
-pyspark
+pyspark==2.4.4
