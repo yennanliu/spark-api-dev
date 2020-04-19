@@ -2,13 +2,24 @@ import os
 import pyspark 
 from pyspark import SparkContext
 
-sc = SparkContext.getOrCreate()
+class SparkWordCount:
 
-RDD1 = sc.parallelize([1,2,3,4,5])
-RDD2 = sc.parallelize(["abc", "def", "ghi", "abc", "xyz"])
-RDD3 = sc.parallelize([{"foo": 1, "bar": 2}, {"foo": 3, "baz": -1, "bar": 5}])
+    def __init__(self):
+        self.sc = pyspark.SparkContext.getOrCreate()
+        self.sc.setLogLevel("ERROR")
 
-print ("*"*30)
-print (RDD1)
-print (RDD1.collect())
-print ("*"*30)
+    def WordCount(self):
+        filenames = "README.md"
+        data = self.sc.textFile(filenames)
+        counts = data.flatMap( lambda line : line.split(" "))\
+                     .map(lambda word : (word, 1))\
+                     .collect() #.reduceByKey(lambda a,b : a+b)\
+        print ("*"*30)
+        print (counts)
+        for count in counts:
+            print (count)
+        print ("*"*30)
+
+if __name__ == '__main__':
+    s = SparkWordCount()
+    s.WordCount()

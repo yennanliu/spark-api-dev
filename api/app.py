@@ -22,5 +22,15 @@ def run_spark_hello_world():
         print (e)
         return jsonify(job_status=False)
 
+# Run spark demo job
+@app.route('/REST/api/v1.0/spark_word_count')
+def run_spark_word_count():
+    try:
+        os.system("spark-submit spark_job/SparkWordCountJob.py")
+        return jsonify(job_status=True)
+    except Exception as e:
+        print (e)
+        return jsonify(job_status=False)
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000, debug=True)
