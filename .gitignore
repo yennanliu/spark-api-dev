@@ -1,5 +1,6 @@
 *.class
 *.log
 .DS_Store
-spark_utils/__pycache__/*.pyc
-spark_utils/__pycache__
+utils/__pycache__/*.pyc
+spark_job/__pycache__
+utils/__pycache__
