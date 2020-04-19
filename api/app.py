@@ -1,6 +1,9 @@
 import os, json 
 from flask import Flask, jsonify, make_response, request, render_template
-
+import sys
+sys.path.append(".")
+from spark_utils import spark_job_demo
+ 
 app = Flask(__name__)
 
 
@@ -13,7 +16,7 @@ def hello_world():
 @app.route('/REST/api/v1.0/spark_demo_job')
 def run_spark_hello_world():
     try:
-        os.system("spark-submit spark_job_demo.py")
+        os.system("spark-submit spark_utils/spark_job_demo.py")
         return jsonify(job_status=True)
     except Exception as e:
         print (e)
