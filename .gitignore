@@ -4,3 +4,4 @@
 utils/__pycache__/*.pyc
 spark_job/__pycache__
 utils/__pycache__
+script/__pycache__
