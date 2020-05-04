@@ -34,11 +34,21 @@ def run_spark_hello_world():
         print (e)
         return jsonify(job_status=False)
 
-# Run spark demo job
+# Run spark word count job
 @app.route('/REST/api/v1.0/spark_word_count')
 def run_spark_word_count():
     try:
         os.system("spark-submit spark_job/SparkWordCountJob.py")
+        return jsonify(job_status=True)
+    except Exception as e:
+        print (e)
+        return jsonify(job_status=False)
+
+# Run spark load df job
+@app.route('/REST/api/v1.0/spark_process_df')
+def run_spark_process_df():
+    try:
+        os.system("spark-submit spark_job/SparkProcessdf.py")
         return jsonify(job_status=True)
     except Exception as e:
         print (e)

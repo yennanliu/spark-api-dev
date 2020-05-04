@@ -11,4 +11,5 @@ python api/app.py
 curl http://0.0.0.0:8000/REST/api/v1.0/spark_demo_job
 curl http://0.0.0.0:8000/REST/api/v1.0/spark_word_count
 curl http://0.0.0.0:8000/REST/api/v1.0/spark_info
+curl http://0.0.0.0:8000/REST/api/v1.0/spark_process_df
 ```
