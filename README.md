@@ -13,3 +13,6 @@ curl http://0.0.0.0:8000/REST/api/v1.0/spark_word_count
 curl http://0.0.0.0:8000/REST/api/v1.0/spark_info
 curl http://0.0.0.0:8000/REST/api/v1.0/spark_process_df
 ```
+
+## Ref
+- https://github.com/spark-jobserver/spark-jobserver
